@@ -1,3 +1,6 @@
 # development resources
 /.idea
 /myenv
+
+# generated resources
+__pycache__/
