@@ -4,6 +4,8 @@ def get_calibration_value(line: str) -> int:
     :param line: A string containing the input text.
     """
     digits = extract_digits(line)
+    if len(digits) == 0:
+        raise Exception(f"No digit is present in '{line}'.")
     return int(digits[0] + digits[-1])
 
 
