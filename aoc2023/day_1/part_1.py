@@ -1,2 +1,2 @@
-def greeting() -> str:
-    return "Day 1: Yay!"
+def get_calibration_value(line: str) -> int:
+    return 0

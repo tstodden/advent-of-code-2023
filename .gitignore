@@ -4,3 +4,6 @@
 
 # generated resources
 __pycache__/
+
+# puzzle input
+input/
