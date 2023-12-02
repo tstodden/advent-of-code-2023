@@ -7,3 +7,11 @@ def test_getting_a_calibration_value_for_two_digits() -> None:
     got = get_calibration_value(line)
 
     assert got == 12
+
+
+def test_getting_a_calibration_value_for_one_digit() -> None:
+    line = "ab1cdef"
+
+    got = get_calibration_value(line)
+
+    assert got == 11
