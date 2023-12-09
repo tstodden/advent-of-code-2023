@@ -2,15 +2,15 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 _TERM_MAP = {
-    "one": 1,
-    "two": 2,
-    "three": 3,
-    "four": 4,
-    "five": 5,
-    "six": 6,
-    "seven": 7,
-    "eight": 8,
-    "nine": 9,
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
 }
 
 
@@ -20,7 +20,7 @@ class DigitTrieNode:
 
     children: dict[str, DigitTrieNode] = field(default_factory=dict)
 
-    digit: int = 0
+    digit: str = ""
 
     is_end: bool = False
 
@@ -41,7 +41,7 @@ class DigitTrie:
             raise Exception(f"Invalid digit: '{word}'.")
         self._insert(_TERM_MAP[word], word, self._root_node)
 
-    def query(self, text: str) -> int | None:
+    def query(self, text: str) -> str | None:
         """
         Return a digit extracted from the text if there is a match in the vocabulary.
 

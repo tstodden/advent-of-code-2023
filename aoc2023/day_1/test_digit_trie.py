@@ -15,7 +15,7 @@ def test_inserting_a_valid_digit():
             children={
                 "n": DigitTrieNode(
                     char="n",
-                    children={"e": DigitTrieNode(char="e", digit=1, is_end=True)},
+                    children={"e": DigitTrieNode(char="e", digit="1", is_end=True)},
                 )
             },
         )
@@ -39,7 +39,7 @@ def test_querying_for_a_missing_digit():
 
 
 @pytest.mark.parametrize(
-    "vocab,line,want", [("one", "oneap", 1), ("one", "one", 1), ("one", "on", None)]
+    "vocab,line,want", [("one", "oneap", "1"), ("one", "one", "1"), ("one", "on", None)]
 )
 def test_querying_for_an_existing_digit(vocab, line, want):
     sut = DigitTrie()
