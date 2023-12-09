@@ -3,6 +3,10 @@ from aoc2023.day_1.digit_trie import DigitTrie
 _DIGIT_TERMS = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 
+def get_calibration_value(line: str) -> int:
+    pass
+
+
 def extract_digits(line: str) -> [str]:
     result = []
     trie = _get_prefilled_digit_trie(_DIGIT_TERMS)
