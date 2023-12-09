@@ -36,6 +36,9 @@ class DigitTrie:
             raise Exception(f"Invalid digit: '{word}'.")
         self._insert(_TERM_MAP[word], word, self._root_node)
 
+    def query(self, text: str) -> int | None:
+        return None
+
     def _insert(self, digit: int, word: str, node: DigitTrieNode):
         if len(word) == 0:
             node.digit = digit

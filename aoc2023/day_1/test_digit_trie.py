@@ -28,3 +28,20 @@ def test_inserting_an_invalid_digit():
 
     with pytest.raises(Exception, match="Invalid digit: 'invalid'."):
         sut.insert("invalid")
+
+
+def test_querying_for_a_missing_digit():
+    sut = DigitTrie()
+
+    got = sut.query("oneap")
+
+    assert got is None
+
+
+def test_querying_for_an_existing_digit():
+    sut = DigitTrie()
+    sut.insert("one")
+
+    got = sut.query("oneap")
+
+    assert got == 1
