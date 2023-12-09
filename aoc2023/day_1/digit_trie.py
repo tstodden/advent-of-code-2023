@@ -32,11 +32,21 @@ class DigitTrie:
         self._root_node = DigitTrieNode(char="")
 
     def insert(self, word: str) -> None:
+        """
+        Insert a word representing a digit into the trie vocabulary.
+
+        :param word: A string representing a digit to insert.
+        """
         if word not in _TERM_MAP:
             raise Exception(f"Invalid digit: '{word}'.")
         self._insert(_TERM_MAP[word], word, self._root_node)
 
     def query(self, text: str) -> int | None:
+        """
+        Return a digit extracted from the text if there is a match in the vocabulary.
+
+        :param text: A string containing text to search.
+        """
         return None
 
     def _insert(self, digit: int, word: str, node: DigitTrieNode):
