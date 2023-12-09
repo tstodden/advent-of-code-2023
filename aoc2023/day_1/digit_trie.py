@@ -47,6 +47,16 @@ class DigitTrie:
 
         :param text: A string containing text to search.
         """
+        node = self._root_node
+
+        for char in text:
+            if char not in node.children and not node.is_end:
+                return None
+            elif char not in node.children and node.is_end:
+                return node.digit
+
+            node = node.children[char]
+
         return None
 
     def _insert(self, digit: int, word: str, node: DigitTrieNode):
