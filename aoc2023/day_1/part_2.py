@@ -3,6 +3,14 @@ from aoc2023.day_1.digit_trie import DigitTrie
 _DIGIT_TERMS = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 
+def run() -> None:
+    with open("input/input.txt", "r") as f:
+        all_lines = f.readlines()
+
+    calibration_values = [get_calibration_value(line) for line in all_lines]
+    print(f"Sum of all calibration values is: '{sum(calibration_values)}'.")
+
+
 def get_calibration_value(line: str) -> int:
     """
     Return an integer containing a calibration value for the input line.
@@ -38,3 +46,7 @@ def _get_prefilled_digit_trie(terms: [str]) -> DigitTrie:
     for t in terms:
         trie.insert(t)
     return trie
+
+
+if __name__ == "__main__":
+    run()
