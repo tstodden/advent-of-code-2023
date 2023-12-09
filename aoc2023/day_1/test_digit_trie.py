@@ -38,10 +38,13 @@ def test_querying_for_a_missing_digit():
     assert got is None
 
 
-def test_querying_for_an_existing_digit():
+@pytest.mark.parametrize(
+    "vocab,line,want", [("one", "oneap", 1), ("one", "one", 1), ("one", "on", None)]
+)
+def test_querying_for_an_existing_digit(vocab, line, want):
     sut = DigitTrie()
-    sut.insert("one")
+    sut.insert(vocab)
 
-    got = sut.query("oneap")
+    got = sut.query(line)
 
-    assert got == 1
+    assert got == want

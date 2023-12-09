@@ -50,14 +50,12 @@ class DigitTrie:
         node = self._root_node
 
         for char in text:
-            if char not in node.children and not node.is_end:
+            if char not in node.children:
                 return None
-            elif char not in node.children and node.is_end:
-                return node.digit
+            elif node.children[char].is_end:
+                return node.children[char].digit
 
             node = node.children[char]
-
-        return None
 
     def _insert(self, digit: int, word: str, node: DigitTrieNode):
         if len(word) == 0:
